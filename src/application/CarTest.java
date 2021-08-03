@@ -10,20 +10,27 @@ public class CarTest {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
 		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Qual é a eficiência do seu carro: ");
+		System.out.print("How efficient is your car: ");
 		double efficiency = sc.nextDouble();
 		Car mycar = new Car(efficiency);//isso é uma variável local
 		
-		System.out.print("Litros de combustível a ser adicionado: ");
+		System.out.print("Liters of fuel to be added: ");
 		double gas = sc.nextDouble();
-		mycar.addgas(gas);
-		System.out.print("Quilometros a ser percorrido: ");
+		mycar.addGas(gas);
+		System.out.print("Kilometers to be covered: ");
 		double km = sc.nextDouble();
 		mycar.drive(km);
-		System.out.print("Litros restante: " + mycar.getgas());
+		double gasLeft = mycar.getGas();
+		if (gasLeft > 0) {
+			System.out.printf("Litros restante: %.2f ", gasLeft);
+			
+		} else {
+			System.out.println("You ran out of fuel!!!");
+		}
+		
 		
 		sc.close();
 		
